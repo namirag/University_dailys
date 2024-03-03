@@ -1,0 +1,23 @@
+<%- include("../partials/header"); -%>
+  <div style="height: 100%; width: 90%">
+    <h1>Edit News:</h1>
+    <form class="" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitle" value="<%=post.title%>" />
+        <label>Date</label>
+        <input type="date" name="date" class="form-control"
+          value="<%=new Date(post.date).toISOString().split('T')[0]%>" />
+        <label>Post</label>
+        <textarea class="form-control" name="postBody" rows="5" cols="30" id="Msupageid">
+<%=post.content%></textarea>
+        <input type="hidden" value="<%=post.id%>" name="id" />
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Update</button>
+    </form>
+    <br>
+  </div>
+  <script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("Msupageid") });
+  </script>
+  <%- include("../partials/footer"); -%>

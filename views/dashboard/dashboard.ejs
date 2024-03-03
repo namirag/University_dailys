@@ -1,0 +1,48 @@
+<%- include("../partials/header"); -%>
+  <form method="get">
+    <div class="form-group" style="display: flex; gap: 10px">
+      <input type="date" name="date" class="form-control" />
+      <button class="btn btn-primary" type="submit">Get</button>
+    </div>
+  </form>
+  <ul style="list-style: none; padding: 0px; width: 50%">
+    <% posts.forEach(async function(post){%>
+      <li style="
+      list-style: outside none none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    ">
+        <h1 style="
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60%;
+      ">
+          <%=post.title%>
+        </h1>
+        <a href="/dashboard/edit/?id=<%=post.id%>" style="
+        margin-left: auto;
+        background-color: #24241e;
+        color: #e3b263;
+        padding: 15px 25px;
+        border-radius: 15px;
+      "><i class="bi bi-pencil-square"></i></a></a>
+        <a href="/dashboard/delete/?id=<%=post.id%>" style="
+        background-color: red;
+        color: #d8a76f;
+        padding: 15px 25px;
+        border-radius: 15px;
+      "><i class="bi bi-trash-fill"></i></a>
+      </li>
+      <% }) %>
+  </ul>
+  <br>
+  <a href="/dashboard/publish" style="
+    background-color: #243929;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 15px 15px 15px 15px;
+  ">Add New Post</a>
+  <br>
+  <%- include("../partials/footer"); -%>

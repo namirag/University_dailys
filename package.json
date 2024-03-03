@@ -1,0 +1,23 @@
+{
+  "name": "news-project",
+  "version": "1.0.0",
+  "description": "NewsPaper Project-wtp",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Namira Ganam",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "connect-mongodb-session": "^3.1.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.7.2",
+    "session": "^0.1.0"
+  }
+}

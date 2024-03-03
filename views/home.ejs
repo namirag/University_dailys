@@ -1,0 +1,67 @@
+<%- include("partials/header"); -%>
+  <form method="get">
+    <div class="form-group" style="display: flex; gap: 10px">
+      <input type="date" name="date" class="form-control" />
+      <button class="btn btn-primary" type="submit">Get</button>
+    </div>
+    <label style="color:ghostwhite; font-size: large; font-family:monospace;"><b>News on this Date</b></label>
+  </form>
+  <% if(posts.length==0){ %>
+    <h1>Post does not exist!!</h1>
+    <% }else {%>
+      <div id="mybook">
+        <div class="page">
+          <h1 style="text-align:center; font-family:monospace;" class="fw-semibold">M.S.U Times</h1>
+          <h2 style="color: #a99a54;">Introduction</h2>
+          <p>
+            Welcome To <br>
+            <b><u>THE MAHARAJA SAYAJIRAO UNIVERSITY OF BARODA</u></b><br>
+          <p style="font-family: monospace;">
+            The Maharaja Sayajirao's grandson Sir Pratapsinghrao Gaekwad who founded the Maharaja Sayajirao University
+            and settled the trust as desired by his grandfather. This Trust known as Sir Sayajirao Diamond Jubilee and
+            Memorial Trust exists today also and caters to the educationals and other needs of the people of the
+            former
+            state of Baroda.
+          </p>
+          <br><u>
+            Sir Pratapsinghrao Gaekwad
+            Founder of The M S University of Baroda
+          </u>
+          </p>
+          <img src="https://www.msubaroda.ac.in/asset/images/team/Foundermsu.jpg" width="500px" height="500px"
+            alt="the maharaja img">
+        </div>
+        <% posts.forEach(async function(post){%>
+          <div class="page">
+            <h1>
+              <%=post.title%>
+            </h1>
+            <div class="content">
+              <%-post.content%>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+      <% } %>
+        <script>
+          $("#mybook").booklet({
+            width: "80%",
+            height: "90%",
+            autoCenter: true,
+            pagePadding: 20,
+            closed: true,
+
+            manual: true,
+            change: flippage_audio,
+          });
+          function flippage_audio() {
+            let audio = new Audio("page-flip-01a.mp3");
+            audio.play();
+          }
+          let converter = new showdown.Converter();
+          document.querySelectorAll(".content").
+            forEach(e => {
+              e.innerHTML = converter.makeHtml(e.innerText);
+            });
+        </script>
+        <%- include("partials/footer"); -%>

@@ -1,0 +1,22 @@
+<%- include("../partials/header"); -%>
+  <div style="height: 100%; width: 90%">
+    <h1>Publish News:</h1>
+    <form class="" method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="postTitle" required
+          oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="this.setCustomValidity('')" />
+        <label>Date</label>
+        <input type="date" name="date" class="form-control" required
+          oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="this.setCustomValidity('')" />
+        <label>Post</label>
+        <textarea class="form-control" name="postBody" rows="5" cols="30" id="Msupageid"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Publish</button>
+    </form>
+    <br>
+  </div>
+  <script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("Msupageid") });
+  </script>
+  <%- include("../partials/footer"); -%>
